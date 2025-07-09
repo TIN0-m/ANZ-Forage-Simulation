@@ -154,7 +154,7 @@ You have been provided with a packet capture file (pcap) containing all their re
 <div>
     <img src="https://img.shields.io/badge/-Wireshark-1679A7?&style=for-the-badge&logo=Wireshark&logoColor=white" />
     <img src="https://img.shields.io/badge/-HxD_Hex_Editor-800080?&style=for-the-badge" alt="HxD Hex Editor" />
-    <img src="https://img.shields.io/badge/-Cyber-Chef-33CC33?&style=for-the-badge" alt="Cyber-Chef" />
+    <img src="https://img.shields.io/badge/-Cyber_Chef-33CC33?&style=for-the-badge" alt="Cyber-Chef" />
 </div>
 
 
