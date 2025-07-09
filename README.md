@@ -157,6 +157,16 @@ You have been provided with a packet capture file (pcap) containing all their re
     <img src="https://img.shields.io/badge/-Cyber_Chef-33CC33?&style=for-the-badge" alt="Cyber-Chef" />
 </div>
 
+# Steps :
+
+The first thing i did was load up the PCAP file into Wireshark and this is the initial information you get when you open the file 
+
+![Screenshot 2025-07-09 160625](https://github.com/user-attachments/assets/36c10a98-01f2-47f5-8338-9b18b9e12756)
+
+There was nothing to it here, so i decided to put “http” into the filter field in order to filter the network traffic to only see HTTP packets.  
+This view let me see some interesting http GET requests, which indicate that the user specifically requests information.
+
+![http](https://github.com/user-attachments/assets/26827139-52d6-4efb-96c3-14194f5f3f8f)
 
 
 
