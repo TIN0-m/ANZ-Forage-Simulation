@@ -163,10 +163,44 @@ The first thing i did was load up the PCAP file into Wireshark and this is the i
 
 ![Screenshot 2025-07-09 160625](https://github.com/user-attachments/assets/36c10a98-01f2-47f5-8338-9b18b9e12756)
 
-There was nothing to it here, so i decided to put “http” into the filter field in order to filter the network traffic to only see HTTP packets.  
-This view let me see some interesting http GET requests, which indicate that the user specifically requests information.
+There was nothing to it here, so i decided to put “http” into the filter field in order to filter the network traffic to only see HTTP packets. 
 
 ![http](https://github.com/user-attachments/assets/26827139-52d6-4efb-96c3-14194f5f3f8f)
 
+This view let me see some interesting http GET requests, which indicate that the user specifically requests information.
 
+![Screenshot 2025-07-05 090538](https://github.com/user-attachments/assets/47c14ec1-9fe8-4ec3-ab5d-083c9be8e772)
 
+To investigate this image download further, I viewed its TCP stream to see what I could find. Looking through the data in the TCP stream showed that this get request downloaded two images
+
+![steps](https://github.com/user-attachments/assets/28508db2-d6f5-4e62-982e-622286f532c4)
+
+I was then presented with the following data and decided to change the format of the data from ASCII to Raw, this would allow me to see the magic numbers or file signatures (These are specific sequences of bytes (often hexadecimal) found at the very beginning of a file. They act as a unique identifier or "fingerprint" that tells an operating system or application what type of file it is ) of the file to be able to extract it.
+
+![ASCIIP2](https://github.com/user-attachments/assets/c45ac27d-109e-4093-8952-0a8db71c1028)
+
+This is the the file after it was formated to present the data in its Raw format.
+
+![Screenshot 2025-07-09 163308](https://github.com/user-attachments/assets/abfda80e-2135-4ce7-8fc2-fad53861187b)
+
+i noticed that at the top of the file there was a get request for a jpg file. From here i then went to the following website (https://filesig.search.org/) to try and figure out what the file signature of a jpg file could be, and i found the following :
+
+![Screenshot 2025-07-09 164725](https://github.com/user-attachments/assets/b4bc61c0-8410-4c4d-b1a2-6f552d77622a)
+
+Once i had the header/footer of the file confirmed ( FFD8 – FFD9 ) i then searched these signatures :
+
+![ffde8](https://github.com/user-attachments/assets/d7f55eb3-4d68-4af1-9f6e-c6443a04627c)
+
+I then copied the values from the header to the footer and took the copied information and pasted it into HxD Hex Editor 
+
+![HxD3](https://github.com/user-attachments/assets/cdc89105-97af-4ff7-bb35-8c0437be5ca0)
+
+From here i saved the file as a jpg file and found out that the following image was the one viewed :
+
+![ANZ-logo](https://github.com/user-attachments/assets/8ae57e7c-ddb9-4721-ae81-d85a37475426)
+
+I then followed the steps that i took to get the image mentioned above and found the following images as well :
+
+![bank-card](https://github.com/user-attachments/assets/6a72342f-5c03-4cdd-a903-4b21db4a35fc)
+![ANZ1](https://github.com/user-attachments/assets/258b9015-e1ff-44b9-a641-c3fc34c5ff95)
+![ANZ2](https://github.com/user-attachments/assets/8eade859-d283-4e44-a88c-2d76955ae58e)
