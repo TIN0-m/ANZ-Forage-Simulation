@@ -229,5 +229,27 @@ In this get request, the raw data had something in particular stood out for me, 
 The TCP stream for the broken.png traffic did not show any file signature for a png image. So while viewing the ascii form of the data, I recognized that the data was encoded in base64. So i used the Cyber Chef tool and that gave me the following png image data :
 ![ANZ 1](https://github.com/user-attachments/assets/fb6cc516-6532-480f-a2ff-a2a401a82810)
 
+After investigating the TCP stream for securepdf.pdf I found the following :
+- The data there was not for a PDF.
+- The bottom of the file contained the hidden message: Password is “secure”
+![secure](https://github.com/user-attachments/assets/f70e3aed-a478-4a53-8978-7c9066cefe29)
+
+i went back to the GaryKessler website and found that the following file signature was for a ZIP file. So I copied the hex of the zip file into Cyber Chef and saved it as a zip file. I opened this zip file, and found it contained a pdf file called rawpdf.pdf. When opened, the pdf asked for a password. The password ‘secure’ shown in the tcpbstream worked, and the PDF opened. It was the first two pages to a guide for internet banking and here are the images of the file :
+
+![Screenshot 2025-07-09 174200](https://github.com/user-attachments/assets/7567a496-191a-4bb5-9562-b1d5b3293436).
+
+# Conclusion :
+This brings the job simulation to an end, upon this i was provided with a certification of completion and can confidently say that i am compitent in the following :
+
+- Investigate e-mails to report suspicious items
+- Analyse a Packet Capture file using an open source tool to identify and investigate any potential threats
+
+<a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/AKkAyEwWc8wjPxx9n/Hf4QMESoFeQwXPsiH_AKkAyEwWc8wjPxx9n_mvw8oKQbrDajKM8Sh_1751703320907_completion_certificate.pdf" target="_blank">
+  <img src="https://img.shields.io/badge/-ANZ-0066CC?&style=for-the-badge" alt="ANZ Project Certificate" />
+</a>
+
+
+
+
 
 
