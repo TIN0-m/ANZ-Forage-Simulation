@@ -204,3 +204,30 @@ I then followed the steps that i took to get the image mentioned above and found
 ![bank-card](https://github.com/user-attachments/assets/6a72342f-5c03-4cdd-a903-4b21db4a35fc)
 ![ANZ1](https://github.com/user-attachments/assets/258b9015-e1ff-44b9-a641-c3fc34c5ff95)
 ![ANZ2](https://github.com/user-attachments/assets/8eade859-d283-4e44-a88c-2d76955ae58e)
+
+When filtering the http get request i noticed that one of the requests was for a .docx file and discovered that there is no file signature for this specific type of file so i followed the TCP stream and changed the format into ASCII and found the following message :
+
+![Message](https://github.com/user-attachments/assets/c4fec112-a6ef-4a39-9400-8437cedc07e0)
+
+The steps that followed were a repetition of the steps i took in getting the first couple of images except  for this i had to get the file signature for the pdf. Upon research i discovered that there's are “25 50 44 46” and “25 25 45 4F 46” with “25 50 44 46” signifying the beginning of the file and “25 25 45 4F 46” showing the end of the file. 
+
+So following the steps mentioned i managed to extract the following: 
+
+![1](https://github.com/user-attachments/assets/3b524967-1242-403a-9d03-97436595ea98)
+![2](https://github.com/user-attachments/assets/83e32a62-dc1b-4c08-9c15-63ac962fbd3a)
+![3](https://github.com/user-attachments/assets/064d0205-490f-4afb-af04-5b8b03c54c36)
+
+There is no distinct file signature of a .txt file and came across a bit of a problem, so i had a look at the file in its raw format and found out that this was in fact a .jpg file so i did the steps that i mentioned below and found the following : 
+
+![hidden](https://github.com/user-attachments/assets/43c3c260-eaa6-4db0-ac12-2b894d007ba8)
+
+In this get request, the raw data had something in particular stood out for me, after the immediate end of the image i was extracting i found the file signature of another image and i traced it to the end and found out that there is infact two images that i was supposed to get and these are the images that i got : 
+
+![atm](https://github.com/user-attachments/assets/93ae4539-456d-4c66-ae7a-1b7edf72ffe5)
+![image 2](https://github.com/user-attachments/assets/95925020-1d4a-469d-890a-c4cfb001b7c2)
+
+The TCP stream for the broken.png traffic did not show any file signature for a png image. So while viewing the ascii form of the data, I recognized that the data was encoded in base64. So i used the Cyber Chef tool and that gave me the following png image data :
+![ANZ 1](https://github.com/user-attachments/assets/fb6cc516-6532-480f-a2ff-a2a401a82810)
+
+
+
